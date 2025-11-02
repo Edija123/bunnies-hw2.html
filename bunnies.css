@@ -1,19 +1,21 @@
-/* Define all sections */
+/* ==============================
+   Base Styles
+============================== */
 body {
     background: LightGray;
     margin: 0;
     font-size: 1.5em;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh;
 
     display: grid;
     grid-gap: 10px;
-    
+
     grid-template-areas:
         "header"
         "hero"
-        "body"
-        "footer"
+        "main-content"
+        "footer";
 }
 
 /* Header section */
@@ -66,13 +68,14 @@ header .tools {
 .hero .feature {
     background: rgb(68, 255, 68);
     grid-area: feature;
+    display: none; /* hidden on mobile */
 }
 
-/* Body section */
+/* Main content */
 main {
     background: lightpink;
     padding: 10px;
-    grid-area: body;
+    grid-area: main-content;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -97,38 +100,19 @@ main .listing {
     grid-area: listing;
 }
 
-/* Footer section */
+/* Footer */
 footer {
     background: LightSalmon;
     padding: 10px;
     grid-area: footer;
 }
 
-/* Hide Sections which are not part of mobile */
+/* Ads */
 .desktop-ad {
     grid-area: ad;
     display: none;
 }
 
-.hero .feature {
-    display: none;
-}
-
-/* Sidebar section */
-.sidebar {
-    background: BlanchedAlmond;
-    padding: 10px;
-    grid-area: sidebar;
-
-    display: none;
-}
-
-.sidebar .feature {
-    background: rgb(255, 208, 136);
-    height: 100%;
-}
-
-/* Other */
 .mobile-ad img {
     vertical-align: top;
     width: 100%;
@@ -139,45 +123,56 @@ footer {
     width: 350px;
 }
 
-.mobile-ad:hover {
-    opacity: 0.5;
-}
-
+.mobile-ad:hover,
 .desktop-ad:hover {
     opacity: 0.5;
 }
 
-/* Tablet friendly layout */
+/* Sidebar */
+.sidebar {
+    background: BlanchedAlmond;
+    padding: 10px;
+    grid-area: sidebar;
+    display: none;
+}
+
+.sidebar .feature {
+    background: rgb(255, 208, 136);
+    height: 100%;
+}
+
+/* ==============================
+   Tablet Layout (≥576px)
+============================== */
 @media (min-width: 576px) {
     body {
         grid-template-rows: auto auto 1fr auto auto;
         grid-template-areas:
             "header"
             "hero"
-            "body"
+            "main-content"
             "sidebar"
             "footer";
     }
 
-    /* Change Header Layout */
+    /* Header Layout */
     header {
         grid-template-columns: 1fr 2fr 1fr;
         grid-template-areas:
             "brand nav tools";
     }
 
-    /* Change Hero Layout */
+    /* Hero Layout */
     .hero {
         grid-template-areas:
             "feature"
             "action";
     }
-
     .hero .feature {
         display: block;
     }
 
-    /* Change Body Layout */
+    /* Main Layout */
     main {
         grid-template-columns: 1fr 200px;
         grid-template-rows: auto 1fr;
@@ -186,7 +181,7 @@ footer {
             "listing listing";
     }
 
-    /* Change Sidebar Layout */
+    /* Sidebar */
     .sidebar {
         display: grid;
     }
@@ -196,7 +191,9 @@ footer {
     }
 }
 
-/* Desktop friendly layout */
+/* ==============================
+   Desktop Layout (≥992px)
+============================== */
 @media (min-width: 992px) {
     body {
         grid-template-columns: 1fr 350px;
@@ -204,25 +201,26 @@ footer {
         grid-template-areas:
             "header header"
             "hero ad"
-            "body sidebar"
-            "footer footer"
+            "main-content sidebar"
+            "footer footer";
     }
 
-    /* Change Hero Layout */
+    /* Hero Layout */
     .hero {
         grid-template-columns: 2fr 1fr;
         grid-template-areas:
-            "feature action"
+            "feature action";
     }
 
-    /* Change Body Layout */
+    /* Main Layout */
     main {
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 1fr;
         grid-template-areas:
-            "feature listing"
+            "feature listing";
     }
 
+    /* Ads */
     .mobile-ad {
         display: none;
     }
@@ -230,4 +228,21 @@ footer {
     .desktop-ad {
         display: block;
     }
+}
+
+/* ==============================
+   Button hover effect
+============================== */
+.btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
