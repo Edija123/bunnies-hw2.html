@@ -2,15 +2,14 @@
    Base Styles
 ============================== */
 body {
-    background: rgb(255, 255, 255);
+    background: #fff;
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-align: center;
     min-height: 100vh;
 
     display: grid;
     grid-gap: 10px;
-
     grid-template-areas:
         "header"
         "hero"
@@ -18,53 +17,48 @@ body {
         "footer";
 }
 
-/* Header section */
+/* Header */
 header {
-    background: rgb(193, 229, 251);
+    background: #c1e5fb;
     padding: 10px;
     grid-area: header;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-gap: 10px;
-    grid-template-areas:
-        "brand brand"
-        "nav tools";
+    grid-template-areas: "brand nav tools";
 }
 
-header .brand { grid-area: brand; }
+header .brand { grid-area: brand; font-weight: bold; font-size: 1.5em; }
 header nav { grid-area: nav; }
 header .tools { grid-area: tools; }
 
-/* Hero section */
+/* Hero */
 .hero {
-    background: rgb(193, 244, 193);
+    background: #c1f4c1;
     padding: 10px;
     grid-area: hero;
-
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;
-    grid-template-areas: 
+    grid-template-areas:
         "feature"
         "action";
 }
 
-.hero .action { background: rgb(193, 244, 193); grid-area: action; }
-.hero .feature { 
-    background: rgb(193, 244, 193); 
-    grid-area: feature; 
-    display: block; /* always show text */
+.hero .feature {
+    grid-area: feature;
     overflow-wrap: break-word;
     word-break: break-word;
 }
 
-/* Main content */
+.hero .action { grid-area: action; }
+
+/* Main Content */
 main {
-    background: rgb(232, 198, 203);
+    background: #e8c6cb;
     padding: 10px;
     grid-area: main-content;
-
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;
@@ -74,27 +68,8 @@ main {
         "listing";
 }
 
-main .feature { 
-    background: rgb(232, 198, 203); 
-    grid-area: feature; 
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-main .mobile-ad { grid-area: ad; }
-main .listing { 
-    background: rgb(232, 198, 203); 
-    grid-area: listing; 
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-/* Footer */
-footer {
-    background: rgb(212, 190, 181);
-    padding: 10px;
-    grid-area: footer;
-}
+main .feature { grid-area: feature; }
+main .listing { grid-area: listing; overflow-wrap: break-word; word-break: break-word; }
 
 /* Ads */
 .desktop-ad { grid-area: ad; display: none; }
@@ -105,17 +80,16 @@ footer {
 
 /* Sidebar */
 .sidebar {
-    background: BlanchedAlmond;
+    background: blanchedalmond;
     padding: 10px;
     grid-area: sidebar;
-    display: block; /* always show sidebar on all screens */
 }
 
-.sidebar .feature { 
-    background: rgb(255, 208, 136); 
-    height: auto; 
-    overflow-wrap: break-word;
-    word-break: break-word;
+/* Footer */
+footer {
+    background: #d4beb5;
+    padding: 10px;
+    grid-area: footer;
 }
 
 /* ==============================
@@ -132,13 +106,6 @@ footer {
             "footer";
     }
 
-    /* Header */
-    header { grid-template-columns: 1fr 2fr 1fr; grid-template-areas: "brand nav tools"; }
-
-    /* Hero Layout */
-    .hero { grid-template-areas: "feature" "action"; }
-
-    /* Main Layout */
     main {
         grid-template-columns: 1fr 200px;
         grid-template-rows: auto 1fr;
@@ -155,7 +122,7 @@ footer {
 ============================== */
 @media (min-width: 992px) {
     body {
-        grid-template-columns: 2fr 1fr; /* main content wider than sidebar */
+        grid-template-columns: 2fr 1fr;
         grid-template-rows: auto auto 1fr auto;
         grid-template-areas:
             "header header"
@@ -164,20 +131,9 @@ footer {
             "footer footer";
     }
 
-    /* Hero Layout */
-    .hero { 
-        grid-template-columns: 2fr 1fr; 
-        grid-template-areas: "feature action"; 
-    }
+    .hero { grid-template-columns: 2fr 1fr; grid-template-areas: "feature action"; }
+    main { grid-template-columns: 1fr 2fr; grid-template-areas: "feature listing"; }
 
-    /* Main Layout */
-    main { 
-        grid-template-columns: 1fr 2fr; 
-        grid-template-rows: 1fr; 
-        grid-template-areas: "feature listing"; 
-    }
-
-    /* Ads */
     .mobile-ad { display: none; }
     .desktop-ad { display: block; }
 }
