@@ -1,111 +1,96 @@
-/* Base styles */
+/* Basic setup */
 body {
   margin: 0;
   font‑family: Arial, sans‑serif;
-  background: #fff;
-  color: #333;
+  background‑color: #ffffff;
+  color: #333333;
 }
+
 img {
   display: block;
   max‑width: 100%;
   height: auto;
-  margin: 1em 0;
-}
-h1, h2, h3 {
-  margin: 0.5em 0;
-}
-p, li {
-  line‑height: 1.6;
-}
-ul, ol {
-  margin: 0.5em 0 1em 1.5em;
+  margin: 1rem auto;
 }
 
-/* Layout grid */
-.container {
+/* Layout wrapper */
+.site‑wrapper {
   display: grid;
   grid‑template‑areas:
-    "sidebar"
-    "content"
-    "ad";
+    "header"
+    "nav"
+    "main"
+    "ad"
+    "footer";
   gap: 10px;
   padding: 10px;
 }
-.sidebar {
-  grid‑area: sidebar;
-  background: #f2f2f2;
-  padding: 15px;
-}
-.content {
-  grid‑area: content;
-  padding: 15px;
-}
-.ad {
-  grid‑area: ad;
-  background: #ffeb3b;
-  text‑align: center;
-  padding: 10px;
-}
+
+.site‑header { grid‑area: header; text-align: center; padding: 20px 0; background: #f4f4f4; }
+.site‑nav    { grid‑area: nav; text-align: center; }
+.site‑main   { grid‑area: main; padding: 15px; }
+.site‑ad     { grid‑area: ad; background: #ffeb3b; text-align: center; padding: 15px; }
+.site‑footer { grid‑area: footer; text-align: center; padding: 10px; background: #333; color: #fff; }
 
 /* Navigation styling */
-.sidebar h1 {
-  text‑align: center;
-  margin‑bottom: 1em;
-}
-.sidebar ul {
+.site‑nav ul {
   list‑style: none;
   padding: 0;
   margin: 0;
 }
-.sidebar li {
-  margin: 1em 0;
+.site‑nav li {
+  display: inline‑block;
+  margin: 0 10px;
 }
-.sidebar a {
+.site‑nav a {
   text‑decoration: none;
   color: #333;
   font‑weight: bold;
 }
-.sidebar a:hover {
-  color: purple;
+.site‑nav a:hover {
+  color: #4CAF50;
 }
 
-/* Button hover effect */
+/* Button */
 .btn {
   padding: 10px 20px;
-  background: #4CAF50;
+  background‑color: #4CAF50;
   border: none;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
-  transition: transform 0.3s ease, box‑shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 .btn:hover {
   transform: scale(1.1);
   box‑shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Footer */
-.footer {
-  text‑align: center;
-  background: #333;
-  color: white;
-  padding: 10px;
-  margin‑top: 20px;
-}
-
-/* Responsive breakpoints */
-/* Tablet – min width 576px */
+/* Responsive – Tablet and above */
 @media (min‑width: 576px) {
-  .container {
+  .site‑wrapper {
     grid‑template‑columns: 200px 1fr;
     grid‑template‑areas:
-      "sidebar content"
-      "sidebar ad";
+      "header header"
+      "nav main"
+      "nav ad"
+      "footer footer";
+  }
+
+  .site‑nav ul {
+    display: block; /* vertical nav for tablet+ */
+  }
+  .site‑nav li {
+    margin: 10px 0;
   }
 }
-/* Desktop – min width 992px */
+
+/* Responsive – Desktop */
 @media (min‑width: 992px) {
-  .container {
+  .site‑wrapper {
     grid‑template‑columns: 200px 1fr 200px;
-    grid‑template‑areas: "sidebar content ad";
+    grid‑template‑areas:
+      "header header header"
+      "nav main ad"
+      "footer footer footer";
   }
 }
