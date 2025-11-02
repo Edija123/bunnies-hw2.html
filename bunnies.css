@@ -32,20 +32,9 @@ header {
         "nav tools";
 }
 
-header .brand {
-    background: rgb(193, 229, 251);
-    grid-area: brand;
-}
-
-header nav {
-    background: rgb(193, 229, 251);
-    grid-area: nav;
-}
-
-header .tools {
-    background: rgb(193, 229, 251);
-    grid-area: tools;
-}
+header .brand { grid-area: brand; }
+header nav { grid-area: nav; }
+header .tools { grid-area: tools; }
 
 /* Hero section */
 .hero {
@@ -56,20 +45,11 @@ header .tools {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;
-    grid-template-areas:
-        "action";
+    grid-template-areas: "action feature";
 }
 
-.hero .action {
-    background: rgb(193, 244, 193);
-    grid-area: action;
-}
-
-.hero .feature {
-    background: rgb(193, 244, 193);
-    grid-area: feature;
-    display: none; /* hidden on mobile */
-}
+.hero .action { background: rgb(193, 244, 193); grid-area: action; }
+.hero .feature { background: rgb(193, 244, 193); grid-area: feature; display: none; }
 
 /* Main content */
 main {
@@ -80,25 +60,15 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;
-    grid-template-areas: 
+    grid-template-areas:
         "feature"
         "ad"
         "listing";
 }
 
-main .feature {
-    background: rgb(232, 198, 203);
-    grid-area: feature;
-}
-
-main .mobile-ad {
-    grid-area: ad;
-}
-
-main .listing {
-    background: rgb(232, 198, 203);
-    grid-area: listing;
-}
+main .feature { background: rgb(232, 198, 203); grid-area: feature; }
+main .mobile-ad { grid-area: ad; }
+main .listing { background: rgb(232, 198, 203); grid-area: listing; }
 
 /* Footer */
 footer {
@@ -108,38 +78,21 @@ footer {
 }
 
 /* Ads */
-.desktop-ad {
-    grid-area: ad;
-    display: none;
-}
-
-.mobile-ad img {
-    vertical-align: top;
-    width: 100%;
-}
-
-.desktop-ad img {
-    vertical-align: top;
-    width: 350px;
-}
-
+.desktop-ad { grid-area: ad; display: none; }
+.mobile-ad img { width: 100%; }
+.desktop-ad img { width: 350px; }
 .mobile-ad:hover,
-.desktop-ad:hover {
-    opacity: 0.5;
-}
+.desktop-ad:hover { opacity: 0.5; }
 
 /* Sidebar */
 .sidebar {
     background: BlanchedAlmond;
     padding: 10px;
     grid-area: sidebar;
-    display: none;
+    display: none; /* hidden on mobile */
 }
 
-.sidebar .feature {
-    background: rgb(255, 208, 136);
-    height: 100%;
-}
+.sidebar .feature { background: rgb(255, 208, 136); height: 100%; }
 
 /* ==============================
    Tablet Layout (≥576px)
@@ -155,12 +108,8 @@ footer {
             "footer";
     }
 
-    /* Header Layout */
-    header {
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-areas:
-            "brand nav tools";
-    }
+    /* Header */
+    header { grid-template-columns: 1fr 2fr 1fr; grid-template-areas: "brand nav tools"; }
 
     /* Hero Layout */
     .hero {
@@ -168,9 +117,7 @@ footer {
             "feature"
             "action";
     }
-    .hero .feature {
-        display: block;
-    }
+    .hero .feature { display: block; }
 
     /* Main Layout */
     main {
@@ -182,13 +129,9 @@ footer {
     }
 
     /* Sidebar */
-    .sidebar {
-        display: grid;
-    }
+    .sidebar { display: grid; }
 
-    .mobile-ad img {
-        width: 200px;
-    }
+    .mobile-ad img { width: 200px; }
 }
 
 /* ==============================
@@ -221,13 +164,14 @@ footer {
     }
 
     /* Ads */
-    .mobile-ad {
-        display: none;
-    }
+    .mobile-ad { display: none; }
+    .desktop-ad { display: block; }
 
-    .desktop-ad {
-        display: block;
-    }
+    /* Show sidebar */
+    .sidebar { display: grid; }
+
+    /* Ensure hero feature is visible */
+    .hero .feature { display: block; }
 }
 
 /* ==============================
