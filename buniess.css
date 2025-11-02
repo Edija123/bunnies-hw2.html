@@ -1,146 +1,136 @@
-/*
-** 1. GLOBAL RESET AND TYPOGRAPHY **
-** Sets the overall look and centers the content like the target page.
-*/
-:root {
-    --text-color: #333;
-    --background-color: #f7f7f7; /* Light gray background */
-    --accent-color: #556B2F; /* A dark olive/green color for links/accents */
-    --max-width: 900px;
-}
-
+/* ==============================
+   Base Styles
+============================== */
 body {
-    font-family: 'Georgia', serif; /* Use a classic, clean font */
-    color: var(--text-color);
-    background-color: var(--background-color);
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
-
-/* Centers all main content */
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 40px 20px;
-    text-align: center; /* Center all text and inline elements */
-    background-color: white; /* Make the content column white */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
 }
 
 h1, h2, h3 {
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-    margin-top: 2em; /* Extra space above main headings */
-    margin-bottom: 0.5em;
-    letter-spacing: 1px;
+  margin: 0.5em 0;
 }
 
-p, ul, ol {
-    margin: 1.5em auto;
-    max-width: 600px; /* Constrain text width for readability */
-}
-
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: #8FBC8F;
-}
-
-/*
-** 2. HEADER AND NAVIGATION **
-** Creates a fixed/sticky navigation bar.
-*/
-header {
-    background-color: white;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky; /* Makes the header stick to the top */
-    top: 0;
-    z-index: 1000; /* Ensures it stays above other content */
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--accent-color);
-}
-
-nav a {
-    margin-left: 25px;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    letter-spacing: 1px;
-    color: var(--text-color);
-}
-
-nav a:hover {
-    color: var(--accent-color);
-}
-
-/*
-** 3. HERO BANNER SECTION **
-** Creates the full-screen, background-image effect.
-*/
-.hero-banner {
-    /* Make sure 'pexels-shvetsa-4588062.jpg' is in the same folder as your HTML/CSS! */
-    background-image: url('pexels-shvetsa-4588062.jpg'); 
-    background-size: cover;
-    background-position: center 30%; /* Focus higher on the image */
-    min-height: 80vh; /* Takes up 80% of the viewport height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 60px; /* Space before content starts */
-}
-
-.hero-banner h1 {
-    font-size: 4em;
-    color: white;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Strong shadow for readability */
-    line-height: 1.2;
-    margin: 0;
-    padding: 20px;
-}
-
-/*
-** 4. CONTENT IMAGES AND LISTS **
-** Styles images to be responsive and centered.
-*/
-.container img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Ensures centering works */
-    margin: 40px auto; /* Generous vertical spacing */
-    border-radius: 5px; /* Slight rounding for a softer look */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+p, li {
+  line-height: 1.6;
 }
 
 ul, ol {
-    list-style-position: inside; /* Keeps list markers centered */
-    padding-left: 0;
-    text-align: left; /* Align list items to the left */
-    width: fit-content; /* Make the width only as wide as the content */
-    margin-left: auto;
-    margin-right: auto;
+  margin: 0.5em 0 1em 1.5em;
 }
 
-li {
-    margin-bottom: 10px;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em 0;
 }
 
-/*
-** 5. FOOTER **
-*/
+/* ==============================
+   Grid Layout
+============================== */
+.container {
+  display: grid;
+  grid-template-areas:
+    "nav"
+    "main"
+    "ad";
+  gap: 10px;
+  padding: 10px;
+}
+
+nav { 
+  grid-area: nav;
+  background-color: #f2f2f2;
+  padding: 15px;
+}
+
+main { 
+  grid-area: main; 
+  padding: 15px; 
+}
+
+aside.ad {
+  grid-area: ad;
+  background-color: #ffeb3b;
+  text-align: center;
+  padding: 10px;
+}
+
+/* ==============================
+   Navigation
+============================== */
+nav h1 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 1em 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: purple;
+}
+
+/* ==============================
+   Button Hover Effect
+============================== */
+.btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ==============================
+   Footer
+============================== */
 footer {
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 40px;
-    background-color: #f0f0f0
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* ==============================
+   Responsive Layout
+============================== */
+/* Tablet >=576px */
+@media (min-width: 576px) {
+  .container {
+    grid-template-columns: 200px 1fr;
+    grid-template-areas:
+      "nav main"
+      "nav ad";
+  }
+}
+
+/* Desktop >=992px */
+@media (min-width: 992px) {
+  .container {
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-areas:
+      "nav main ad";
+  }
+}

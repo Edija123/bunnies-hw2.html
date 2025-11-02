@@ -1,90 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tribute page about bunnies">
-  <meta name="author" content="Your Name">
-  <title>Tribute to Bunnies</title>
-
-   <style>
-  body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-
-  img {
-    display: block;
-    margin: 0 auto;
-    max-width: 80%;
-    height: auto;
-  }
-
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  ul, ol {
-    display: inline-block;
-    text-align: left;
-    margin: 1rem auto;
-  }
-  h1 {
-  font-size: 3rem;   /* makes it bigger (adjust number if needed) */
-  color: gold;       /* bright yellow */
-  margin-bottom: 1rem;
-}
-h2 {
-  color: purple;
-  font-size: 2rem;   /* slightly smaller than h1 */
-  margin-top: 1.5rem;
-}
-h3 {
-  color: lightblue;     /* pale blue */
-  font-size: 1.5rem;    /* smaller than h2 */
-  margin-top: 1rem;
-}
-footer {
-  text-align: right;   /* moves footer text to the right */
-  font-weight: bold;   /* makes text bold */
-  margin-top: 2rem;    /* adds space above */
-}
-body {
-  background-color: rgb(255, 255, 255);  /* yellow background */
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bunnies Tribute Page</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1 id="top">Bunnies</h1>
-    <img src="pexels-shvetsa-4588062.jpg" alt="Wild bunny in the grass" width="200">
-  </header>
 
+<div class="container">
+  <!-- Navigation Column -->
+  <nav>
+    <h1>Bunnies</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#fun">Fun Facts</a></li>
+      <li><a href="#learn">Learn More</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Column -->
   <main>
-    <section>
+    <section id="about">
       <h2>About Bunnies</h2>
+      <img src="pexels-shvetsa-4588062.jpg" alt="Wild bunny in the grass">
       <p>Bunnies, or rabbits, are small mammals known for their long ears, fluffy tails, and gentle personalities. They belong to the family Leporidae.</p>
       <p>They live in a variety of environments worldwide and are often kept as beloved pets due to their friendly nature.</p>
       <p>Across cultures, bunnies symbolize fertility, springtime, and playfulness. They are also popular figures in folklore and stories.</p>
     </section>
 
-      <img src="pexels-shvetsa-4588065.jpg" alt="Domestic bunny sitting in the garden" width="200">
-
-    <section>
-      <h3>Fun Facts</h3>
+    <section id="fun">
+      <h2>Fun Facts</h2>
+      <img src="pexels-shvetsa-4588065.jpg" alt="Domestic bunny in garden">
       <ul>
         <li>Bunnies can rotate their ears almost 180 degrees.</li>
         <li>Their teeth never stop growing.</li>
         <li>Like cats, happy rabbits purr when they're content and relaxed.</li>
       </ul>
-
       <h3>Most common bunny colors</h3>
       <ol>
         <li>White</li>
@@ -95,20 +47,23 @@ body {
       </ol>
     </section>
 
-    <section>
+    <section id="learn">
       <h2>Learn More</h2>
-      <p>
-        Read more about rabbits on 
-        <a href="https://en.wikipedia.org/wiki/Rabbit" target="_blank">Wikipedia</a>.
-      </p>
-      <p>
-        Jump to the <a href="#top">top of the page</a>.
-      </p>
+      <p>Read more about rabbits on <a href="https://en.wikipedia.org/wiki/Rabbit" target="_blank">Wikipedia</a>.</p>
+      <button class="btn">Learn More</button>
     </section>
   </main>
 
-  <footer>
-    <p>Created by Edija — 2025</p>
-  </footer>
+  <!-- Advertisement Column -->
+  <aside class="ad">
+    <h3>Advertisement</h3>
+    <img src="https://placekitten.com/250/350" alt="Cat ad">
+  </aside>
+</div>
+
+<footer>
+  <p>Created by Edija — 2025</p>
+</footer>
+
 </body>
 </html>
